@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <main>
+        <form action="home.html" onsubmit="return validate()">
+
+
+
+
+
+            <table>
+    
+                <tr>
+                    <td><label for="date">Date of Bith:</label></td>
+                    <td><input type="date" name="" id="date"></td>
+                    
+                </tr>
+                <tr>
+                    <td><p id="umsg" style="color: red;"></p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" id="submit" value="Submit" />
+                    </td>
+                </tr>
+    
+            </table>
+        </form>
+        <script>
+            function validate()
+            {
+                let date=document.getElementById("date").value;
+                let umsg=document.getElementById("umsg")
+
+                if (date=="")
+            {
+                umsg.innerHTML="please fill up date"
+                return false;
+            }
+
+            let dob = new Date(date);
+            let day = dob.getDate();
+            let month = dob.getMonth() + 1; // Months are 0-based (January = 0)
+            let year = dob.getFullYear();
+
+            if (month<1 || month>12)
+            {
+                umsg.innerHTML="month will be 1 to 12 ";
+                return false;
+
+
+            }
+            if (day<1 || day >31)
+            {
+                umsg.innerHTML="the date will be 1 to 31";
+                return false;
+            }
+            if (year<1900 || year>2016)
+            {
+                umsg.innerHTML="the year willbe 1900-2016";
+                return false;
+            }
+            return true;
+
+            }
+
+        </script>
+    </main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkbox</title>     
+</head>
+<body>
+    <header></header>
+    <main>
+        <form action="home.html " onsubmit="return validate()">
+
+            <fieldset>
+                <legend>Degree</legend>
+                <input type="checkbox" name="degree" id="a" >SSC
+                <input type="checkbox" name="degree" id="b" >HSC
+                <input type="checkbox" name="degree" id="c" >Bsc
+                <br>
+                <p id="umsg" style="color: red;"></p>
+
+            </fieldset>
+            <input type="submit" name="" id="">
+        </form>
+    </main>
+    <script>
+        function validate()
+        {
+            let checkbox1=document.getElementById("a").checked;
+            let checkbox2=document.getElementById("b").checked;
+            let checkbox3=document.getElementById("c").checked;
+            let umsg=document.getElementById("umsg");
+
+            if (checkbox1=="" && checkbox2=="" && checkbox3=="")
+        {
+            umsg.innerHTML="pleae fill up checkbox"
+            return false;
+
+        }
+        return true;
+           
+        }
+
+    </script>
+
+     
+    
+</body>
+</html>

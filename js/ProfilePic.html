@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Pic</title>     
+</head>
+<body>
+    <header></header>
+    <main>
+        <form action="home.html " onsubmit="return validate()">
+
+            <fieldset>
+                <legend>Profile Picture</legend>
+                <table>
+                    <tr>
+                        <td>User id:</td>
+                        <td><input type="text" name="" id="userid"></td>
+                    </tr>
+                    <tr>
+                        <td>Picture:</td>
+                        <td><input type="file" name="" id="imgid"></td>
+                    </tr>
+                    <tr>
+                        <td><p id="umsg" style="color: red;"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p id="imsg" style="color: red;"></p></td>
+                    </tr>
+                </table>
+                
+
+            </fieldset>
+            <input type="submit" name="" id="">
+        </form>
+    </main>
+    <script>
+        function validate()
+        {
+            let userid=document.getElementById("userid").value;
+            let image=document.getElementById("imgid").value;
+            let umsg=document.getElementById("umsg");
+            let imsg=document.getElementById("imsg");
+
+            if (userid=="")
+        {
+            umsg.innerHTML="pleae fill up userid"
+            return false;
+
+        }
+        if(image=="")
+        {
+            imsg.innerHTML="please select photo"
+            return false;
+        }
+        return true;
+           
+        }
+
+    </script>
+
+     
+    
+</body>
+</html>
