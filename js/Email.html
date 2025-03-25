@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+
+    <style>
+        /* Tooltip styling */
+        .tooltip {
+            position:relative;
+            display:inline-block;
+            cursor:pointer;
+            border:none;
+            background:none;
+            font-size: 16px;
+            color: blue;
+        }
+
+        .tooltip .tooltiptext {
+            visibility:hidden;
+            width:200px;
+            background-color: black;
+            color:#fff;
+            text-align:center;
+            padding:5px;
+            border-radius:5px;
+
+            /* Position the tooltip text */
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Show the tooltip text on hover */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        </style>
+</head>
+
+<body>
+    <main>
+        <h1 id="abc">JS Email</h1>
+        <form action="home2.html" onsubmit="return validate()">
+            Email: <input type="text" name="email" id="email" value="" />
+            <button type="button" class="tooltip">
+                ℹ️
+                <span class="tooltiptext">Example: user@example.com</span>
+            </button>
+            <p id="umsg" style="color: red;"></p>
+
+            <input type="submit" name="submit" id="submit" value="Submit" />
+        </form>
+    </main>
+
+    <script>
+        function validate() {
+            let email = document.getElementById('email').value;
+            let msg1 = document.getElementById('umsg');
+
+          
+
+            
+            if (email === "") {
+                msg1.innerHTML = "Please fill up email";
+                return false;
+            }
+
+            
+            if (!email.includes("@") || email.indexOf("@") !== email.lastIndexOf("@")) {
+                msg1.innerHTML = "Email must contain exactly one '@' symbol";
+                return false;
+            }
+
+
+            return true; 
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name</title>
+</head>
+<body>
+    <main>
+        <h1 id="abc">JS Name</h1>
+    <form action="home.html" onsubmit="return validate()">
+        Username:<input type="text" name="username" id="username" value="" />
+        <p id="umsg"></p>
+       
+        <input type="submit" name="submit" id="submit" value="submit" />
+        <p id="vmsg"></p>
+    </form>
+        
+      
+    </main>
+    <script>
+         function validate() {
+//             ii. Contains at least two words 
+//              iii. Can contain a-z or A-Z or dot(.) or dash(-) 
+//               iv. Must start with a letter 
+
+            let username = document.getElementById('username').value;
+           
+            let msg1 = document.getElementById('umsg');
+            let word=username.split(" ");
+            
+            
+            if (username == "") {
+                msg1.innerHTML = "please fill up username";
+                return false;
+
+
+            }
+             if(word.length<2)
+            {
+               msg1.innerHTML= "Username must contain at least two words";
+               return false;
+
+            }
+            
+            //check valid letter 
+            let validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.- ";
+            for (let i = 0; i < username.length; i++) {
+                if (!validChars.includes(username[i])) {
+                    msg1.innerHTML = "Username can only contain letters, dot (.), or dash (-)";
+                    return false;
+                }
+            }
+           
+             // Must start with a letter
+             let firstChar = username.charAt(0);
+            if (!("a" <= firstChar && firstChar <= "z") && !("A" <= firstChar && firstChar <= "Z")) {
+                msg1.innerHTML = "Username must start with a letter";
+                return false;
+            }
+           
+
+            
+            return true;
+
+
+        }
+    </script>
+    
+</body>
+</html>
