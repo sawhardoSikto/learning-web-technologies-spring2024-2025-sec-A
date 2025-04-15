@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+
+<div id="calculator"></div>
+
+<script>
+  const calculator = document.getElementById('calculator');
+
+  // Display area
+  const display = document.createElement('div');
+  display.style.border = '1px solid black';
+  display.style.padding = '10px';
+  display.style.width = '160px';
+  display.style.marginBottom = '10px';
+  display.style.fontSize = '20px';
+  display.style.textAlign = 'right';
+  display.textContent = '0';
+  calculator.appendChild(display);
+
+  // Store values
+  let firstNumber = '';
+  let secondNumber = '';
+  let operator = '';
+  let resultShown = false;
+
+  // Display update function
+  function updateDisplay(value) {
+    display.textContent = value;
+  }
+
+  // Function to create buttons
+  function createButton(value) {
+    const btn = document.createElement('button');
+    btn.textContent = value;
+    btn.style.width = '40px';
+    btn.style.height = '40px';
+    btn.style.margin = '5px';
+    calculator.appendChild(btn);
+    return btn;
+  }
+
+  // Handle numbers
+  function handleNumber(num) {
+    if (resultShown) {
+      firstNumber = '';
+      resultShown = false;
+    }
+    if (operator === '') {
+      firstNumber += num;
+      updateDisplay(firstNumber);
+    } else {
+      secondNumber += num;
+      updateDisplay(secondNumber);
+    }
+  }
+  function lineBreak() {
+    const br = document.createElement('br');
+    calculator.appendChild(br);
+  }
+
+  
+  const btn1 = createButton('1');
+  
+  const btn2 = createButton('2');
+  const btn3 = createButton('3');
+  lineBreak()
+  const btn4 = createButton('4');
+  const btn5 = createButton('5');
+  const btn6 = createButton('6');
+  lineBreak()
+  const btn7 = createButton('7');
+  const btn8 = createButton('8');
+  const btn9 = createButton('9');
+  lineBreak()
+  const btn0 = createButton('0');
+  const dot = createButton('.');
+  const plus = createButton('+');
+  lineBreak()
+  const minus = createButton('-');
+  const multiply = createButton('*');
+  const divide = createButton('/');
+  lineBreak()
+  const persentage = createButton('%');
+  const equals = createButton('=');
+  const clear = createButton('C');
+
+  
+  btn1.onclick = function() 
+  { handleNumber('1'); 
+
+  };
+  btn2.onclick = function()
+   { handleNumber('2');
+
+    };
+  btn3.onclick = function()
+   { handleNumber('3'); 
+
+   };
+  btn4.onclick = function() 
+  { handleNumber('4'); 
+
+  };
+  btn5.onclick = function() 
+  { handleNumber('5');
+
+   };
+  btn6.onclick = function()
+   { handleNumber('6');
+
+    };
+  btn7.onclick = function() 
+  { handleNumber('7'); 
+
+  };
+  btn8.onclick = function()
+   { handleNumber('8'); 
+
+   };
+  btn9.onclick = function() 
+  { handleNumber('9');
+
+   };
+  btn0.onclick = function() 
+  { handleNumber('0'); 
+
+  };
+  dot.onclick = function() 
+  { handleNumber('.'); 
+
+  };
+  
+
+ 
+  plus.onclick = function() 
+  { operator = '+'; 
+
+  };
+  minus.onclick = function() 
+  { operator = '-'; 
+
+  };
+  multiply.onclick = function()
+   { operator = '*';
+
+   };
+  divide.onclick = function() 
+  { operator = '/'; 
+
+  };
+  persentage.onclick = function() {
+    if (operator === '') {
+      firstNumber = (parseFloat(firstNumber) / 100).toString();
+      updateDisplay(firstNumber);
+    } else {
+      secondNumber = (parseFloat(secondNumber) / 100).toString();
+      updateDisplay(secondNumber);
+    }
+  };
+
+
+  
+  clear.onclick = function() {
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
+    resultShown = false;
+    updateDisplay('0');
+  };
+
+
+  equals.onclick = function() {
+    let result = 0;
+    const num1 = parseFloat(firstNumber);
+    const num2 = parseFloat(secondNumber);
+
+    if (operator === '+') result = num1 + num2;
+    else if (operator === '-') result = num1 - num2;
+    else if (operator === '*') result = num1 * num2;
+    else if (operator==='%') result = num1/100;
+    else if (operator === '/') {
+      if (num2 === 0) {
+        result = 'Error';
+      } else {
+        result = num1 / num2;
+      }
+    }
+
+    updateDisplay(result);
+    firstNumber = result.toString();
+    secondNumber = '';
+    operator = '';
+    resultShown = true;
+  };
+</script>
+
+</body>
+</html>
