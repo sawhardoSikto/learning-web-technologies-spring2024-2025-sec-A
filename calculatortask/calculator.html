@@ -45,7 +45,7 @@
 
   // Handle numbers
   function handleNumber(num) {
-    if (resultShown) {
+    if (resultShown) {    //result joid true thake tahole firstnumbr ke empty korbe then check korbe operator faka kina set dekhe porer value ta add korbe ager valuee er pashe 
       firstNumber = '';
       resultShown = false;
     }
@@ -181,7 +181,7 @@
     if (operator === '+') result = num1 + num2;
     else if (operator === '-') result = num1 - num2;
     else if (operator === '*') result = num1 * num2;
-    else if (operator==='%') result = num1/100;
+
     else if (operator === '/') {
       if (num2 === 0) {
         result = 'Error';
