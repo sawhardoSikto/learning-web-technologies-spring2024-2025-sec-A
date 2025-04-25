@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMMM</title>
+    <style>
+        button{
+            background-color: #FF4742;
+            color: white;
+            border: 1px solid #FF4742;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 1)1px 2px 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="house">
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <button type="button" id="button1">Button1</button>
+    <button type="button" id="button2">Button2</button>
+    <button type="button" id="button3">button3</button>
+
+    <script>
+        let x=document.getElementById("house")
+        let btn1=document.getElementById("button1")
+        let btn2=document.getElementById("button2")
+        let btn3=document.getElementById("button3")
+
+        btn1.onclick=function()
+        {
+            console.log(x);
+        }
+        btn2.onclick=function()
+        {
+            let roomExtra=document.createElement("p")
+            x.appendChild(roomExtra)
+            console.log("added")
+        }
+        btn3.onclick=function()
+        {
+            let rooms=document.querySelectorAll("p")
+            x.removeChild(rooms[0])
+            console.log("removed")
+        }
+    </script>
+    
+</body>
+</html>

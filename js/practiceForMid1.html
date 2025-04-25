@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js dom with object</title>   
+</head>
+<body>
+    <script>
+        let Person={
+          fname: "sikto",
+          lname:"biswas",
+          status:true,
+          age:25,
+          hike:function (loc)
+          {
+            return "goes to hiking at  " +this.location+" of "+loc+" thana";
+          },
+          get gfname()
+          {
+            return this.fname;
+          }
+
+        };
+        Person.location="kuratoli";
+        Person.mymethod=function()
+        {
+            alert('M2')
+        }
+
+        console.log(Person.fname)
+        console.log(Person.gfname)
+        console.log(Person.hike("vatara"))
+        Person.mymethod();
+        console.log(Person.location)
+    </script>
+</body>
+</html>

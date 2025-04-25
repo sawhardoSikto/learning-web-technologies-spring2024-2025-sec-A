@@ -35,7 +35,7 @@
             
             
             if (username == "") {
-                msg1.innerHTML = "please fill up username";
+                msg1.innerText = "please fill up username";
                 return false;
 
 
@@ -53,7 +53,7 @@
                 if (!validChars.includes(username[i])) {
                     msg1.innerHTML = "Username can only contain letters, dot (.), or dash (-)";
                     return false;
-                }
+                }  
             }
            
              // Must start with a letter
