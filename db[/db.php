@@ -1,0 +1,7 @@
+<?php
+    $con=mysqli_connect("127.0.0.1","root","","webtech");
+    $sql="select * from users";
+    $result=mysqli_query($con,$sql);
+    $row=mysqli_fetch_array($result);
+    print_r()
+?>
