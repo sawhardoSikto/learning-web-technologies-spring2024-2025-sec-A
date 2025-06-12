@@ -13,7 +13,7 @@ if (isset($_COOKIE['status'])){
 </head>
 <body>
     <h1>Welcome to home</h1>
-    <a href="logout.php">logout</a>
+    <a href="../controller/logout.php">logout</a>
 </body>
 </html>
 <?php

@@ -8,7 +8,7 @@
             echo "null username/password!";
         }else if($username === $password){
             setcookie("status","true", time()+3000,"/");
-            header('location: home.php');
+            header('location: ../view/home.php');
             //echo "valid user!";
         }else{
             echo "invalid user!";
